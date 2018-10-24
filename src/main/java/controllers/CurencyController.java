@@ -1,6 +1,7 @@
 package controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,10 @@ public class CurencyController {
     }
 
     @PostMapping
-    private ModelAndView convert(@RequestParam String money, String rate) {
+    private ModelAndView convert(String money, String rate) {
         try {
-            Double.parseDouble(money);
             Double.parseDouble(rate);
+            Double.parseDouble(money);
         } catch (Throwable a) {
             return new ModelAndView("error404");
         }
